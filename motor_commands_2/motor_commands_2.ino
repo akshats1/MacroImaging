@@ -11,7 +11,8 @@
 #define M1_IN4 13
 
 // Full-step sequence for 28BYJ-48 (clockwise)
-const int fullStepSequence[8][4] = {
+const int fullStepSequence[8][4] = 
+{
   {1, 0, 0, 0},  //step 1
   {1, 1, 0, 0},  //step 2
   {0, 1, 0, 0},  //step 3
@@ -25,10 +26,11 @@ const int fullStepSequence[8][4] = {
 // variables
 String content = "";   // command given by user
 int currentStepM2 = 0; //global variable to iterate through fullStepSequence for motor 2
-int currentStepM1 = 0; //global variable to iterate through fullStepSequence for motor 2
+int currentStepM1 = 0; //global variable to iterate through fullStepSequence for motor 1
 
 
-void setup() {
+void setup() 
+{
 
   Serial.begin(9600);
   Serial.println("M1 and M2 working");
@@ -103,7 +105,8 @@ void rotateMotor(int in1, int in2, int in3, int in4, int steps, int &currentStep
   }
 }
 
-void setStep(int in1, int in2, int in3, int in4, int step) {
+void setStep(int in1, int in2, int in3, int in4, int step) 
+{//Traversing direction in matrives
   digitalWrite(in1, fullStepSequence[step][0]);
   digitalWrite(in2, fullStepSequence[step][1]);
   digitalWrite(in3, fullStepSequence[step][2]);
